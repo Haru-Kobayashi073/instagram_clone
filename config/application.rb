@@ -36,6 +36,7 @@ module App
     # Skip views, helpers and assets when generating a new resource.
     config.time_zone = 'Tokyo'
     config.api_only = true
-    config.action_mailer.default_url_options = { host: ENV['APP_DEFAULT_URL_HOST'], port: ENV['APP_DEFAULT_URL_PORT'] }
+    Rails.application.routes.default_url_options[:host] = ENV['APP_DEFAULT_URL_HOST']
+    Rails.application.routes.default_url_options[:port] = ENV['APP_DEFAULT_URL_PORT']
   end
 end
