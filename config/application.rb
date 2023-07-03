@@ -35,7 +35,7 @@ module App
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.time_zone = 'Tokyo'
-    config.api_only = true
+    config.api_only = false
     Rails.application.routes.default_url_options[:host] = ENV['APP_DEFAULT_URL_HOST']
     Rails.application.routes.default_url_options[:port] = ENV['APP_DEFAULT_URL_PORT']
   end
