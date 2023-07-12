@@ -40,3 +40,9 @@ module App
     Rails.application.routes.default_url_options[:port] = ENV['APP_DEFAULT_URL_PORT']
   end
 end
+
+module TimeFormatSandbox
+  class Application < Rails::Application
+    config.i18n.default_locale = :ja
+  end
+end
