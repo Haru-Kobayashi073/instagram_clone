@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class PostsController < ApplicationController
   before_action :set_post, only: %i[show destroy]
 
   def show; end
@@ -9,10 +9,11 @@ class ArticlesController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
+    @post.user_id = current_user&.id
     if @post.save
-      redirect_to post_url(@post), notice: 'Post was successfully created.'
+      redirect_to root_url, notice: 'Post was successfully created.'
     else
+      p @post.errors
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,6 +30,6 @@ class ArticlesController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:user_id, :description)
+    params.require(:post).permit(:user_id, :description, :thumbnail)
   end
 end
