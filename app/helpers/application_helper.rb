@@ -27,4 +27,8 @@ module ApplicationHelper
     hours = (time_difference / 1.hour).round
     "#{hours}時間前"
   end
+
+  def post_time(datetime)
+    time_ago_in_words(datetime) + '前'
+  end
 end
