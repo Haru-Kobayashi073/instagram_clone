@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   # resources :home, only: :index
   root 'home#index'
-  resources :posts, only: [:new, :create]
+
+  resource :profile, only: [:show]
+
+  resources :posts, only: [:new, :create] do
+    resource :likes, only: %i[create destroy]
+  end
 end
